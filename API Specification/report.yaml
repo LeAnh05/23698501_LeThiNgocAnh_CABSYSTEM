@@ -1,0 +1,35 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Report API
+  version: 1.0.0
+paths:
+  /reports/trips:
+    get:
+      summary: Get trip count report
+      responses:
+        '200':
+          description: Trip count report
+  /reports/revenue:
+    get:
+      summary: Get revenue report
+      responses:
+        '200':
+          description: Revenue report
+  /reports/completion-rate:
+    get:
+      summary: Get completion rate report
+      responses:
+        '200':
+          description: Completion rate report
+  /reports/cancellation-rate:
+    get:
+      summary: Get cancellation rate report
+      responses:
+        '200':
+          description: Cancellation rate report
+  /reports/driver-performance:
+    get:
+      summary: Get driver performance report
+      responses:
+        '200':
+          description: Driver performance report

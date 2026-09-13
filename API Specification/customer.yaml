@@ -1,1 +1,50 @@
-
+openapi: 3.0.3
+info:
+  title: CAB System - Customer API
+  version: 1.0.0
+paths:
+  /customers:
+    post:
+      summary: Create customer
+      responses:
+        '201':
+          description: Customer created
+    get:
+      summary: List customers
+      responses:
+        '200':
+          description: Customer list
+  /customers/{customerId}:
+    parameters:
+      - in: path
+        name: customerId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get customer detail
+      responses:
+        '200':
+          description: Customer detail
+    put:
+      summary: Update customer
+      responses:
+        '200':
+          description: Customer updated
+    delete:
+      summary: Delete customer
+      responses:
+        '204':
+          description: Customer deleted
+  /customers/{customerId}/trips:
+    get:
+      summary: Get customer trip history
+      parameters:
+        - in: path
+          name: customerId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trip history

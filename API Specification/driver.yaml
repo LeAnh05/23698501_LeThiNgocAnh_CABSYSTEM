@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Driver API
+  version: 1.0.0
+paths:
+  /drivers:
+    post:
+      summary: Create driver
+      responses:
+        '201':
+          description: Driver created
+    get:
+      summary: List drivers
+      responses:
+        '200':
+          description: Driver list
+  /drivers/{driverId}:
+    parameters:
+      - in: path
+        name: driverId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get driver detail
+      responses:
+        '200':
+          description: Driver detail
+    put:
+      summary: Update driver
+      responses:
+        '200':
+          description: Driver updated
+    delete:
+      summary: Delete driver
+      responses:
+        '204':
+          description: Driver deleted
+  /drivers/{driverId}/availability:
+    patch:
+      summary: Update driver availability
+      parameters:
+        - in: path
+          name: driverId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Availability updated
+  /drivers/{driverId}/location:
+    patch:
+      summary: Update driver location
+      parameters:
+        - in: path
+          name: driverId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Location updated

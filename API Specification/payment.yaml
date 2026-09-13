@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Payment API
+  version: 1.0.0
+paths:
+  /payments:
+    post:
+      summary: Create payment
+      responses:
+        '201':
+          description: Payment created
+    get:
+      summary: List payments
+      responses:
+        '200':
+          description: Payment list
+  /payments/{paymentId}:
+    parameters:
+      - in: path
+        name: paymentId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get payment detail
+      responses:
+        '200':
+          description: Payment detail
+    put:
+      summary: Update payment
+      responses:
+        '200':
+          description: Payment updated
+    delete:
+      summary: Delete payment
+      responses:
+        '204':
+          description: Payment deleted
+  /trips/{tripId}/payments:
+    post:
+      summary: Process trip payment
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Payment result recorded
+  /payments/{paymentId}/retry:
+    post:
+      summary: Retry failed electronic payment
+      parameters:
+        - in: path
+          name: paymentId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Retry processed

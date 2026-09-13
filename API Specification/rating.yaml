@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Rating API
+  version: 1.0.0
+paths:
+  /ratings:
+    post:
+      summary: Create rating after completed trip
+      responses:
+        '201':
+          description: Rating created
+    get:
+      summary: List ratings
+      responses:
+        '200':
+          description: Rating list
+  /ratings/{ratingId}:
+    parameters:
+      - in: path
+        name: ratingId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get rating detail
+      responses:
+        '200':
+          description: Rating detail
+    put:
+      summary: Update rating
+      responses:
+        '200':
+          description: Rating updated
+    delete:
+      summary: Delete rating
+      responses:
+        '204':
+          description: Rating deleted
+  /drivers/{driverId}/ratings:
+    get:
+      summary: Get ratings of a driver
+      parameters:
+        - in: path
+          name: driverId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Driver ratings

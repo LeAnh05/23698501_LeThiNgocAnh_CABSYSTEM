@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Notification API
+  version: 1.0.0
+paths:
+  /notifications:
+    post:
+      summary: Create notification
+      responses:
+        '201':
+          description: Notification created
+    get:
+      summary: List notifications
+      responses:
+        '200':
+          description: Notification list
+  /notifications/{notificationId}:
+    parameters:
+      - in: path
+        name: notificationId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get notification detail
+      responses:
+        '200':
+          description: Notification detail
+    put:
+      summary: Update notification
+      responses:
+        '200':
+          description: Notification updated
+    delete:
+      summary: Delete notification
+      responses:
+        '204':
+          description: Notification deleted
+  /accounts/{accountId}/notifications:
+    get:
+      summary: Get notifications of an account
+      parameters:
+        - in: path
+          name: accountId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Account notification list
+  /notifications/{notificationId}/read:
+    patch:
+      summary: Mark notification as read
+      parameters:
+        - in: path
+          name: notificationId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Notification marked as read

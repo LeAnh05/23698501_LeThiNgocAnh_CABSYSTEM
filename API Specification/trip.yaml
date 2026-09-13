@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Trip API
+  version: 1.0.0
+paths:
+  /trips:
+    post:
+      summary: Create trip request
+      responses:
+        '201':
+          description: Trip created
+    get:
+      summary: List trips
+      responses:
+        '200':
+          description: Trip list
+  /trips/{tripId}:
+    parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get trip detail
+      responses:
+        '200':
+          description: Trip detail
+    put:
+      summary: Update trip
+      responses:
+        '200':
+          description: Trip updated
+    delete:
+      summary: Delete trip
+      responses:
+        '204':
+          description: Trip deleted
+  /trips/{tripId}/match-driver:
+    post:
+      summary: Find suitable driver
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Matching processed
+  /trips/{tripId}/accept:
+    post:
+      summary: Driver accepts trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trip accepted
+  /trips/{tripId}/reject:
+    post:
+      summary: Driver rejects trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trip rejected and matching may continue
+  /trips/{tripId}/status:
+    patch:
+      summary: Update trip status
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Trip status updated
+  /trips/{tripId}/tracking:
+    get:
+      summary: Track current trip
+      parameters:
+        - in: path
+          name: tripId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Tracking information

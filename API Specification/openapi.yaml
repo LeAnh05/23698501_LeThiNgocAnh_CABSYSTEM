@@ -1,1 +1,1338 @@
-
+openapi: 3.0.3
+info:
+  title: CAB System API
+  version: 1.0.0
+  description: Standalone OpenAPI specification for the CAB System MVP, based on the
+    SRS functional requirements.
+servers:
+- url: https://api.example.com
+  description: Example server
+tags:
+- name: Account
+- name: Customer
+- name: Driver
+- name: Vehicle
+- name: Trip
+- name: Payment
+- name: Rating
+- name: Notification
+- name: Report
+paths:
+  /accounts:
+    post:
+      tags:
+      - Account
+      summary: Create account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '201':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    get:
+      tags:
+      - Account
+      summary: List accounts
+      responses:
+        '200':
+          description: Account list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Account'
+  /accounts/{accountId}:
+    parameters:
+    - in: path
+      name: accountId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Account
+      summary: Get account detail
+      responses:
+        '200':
+          description: Account detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '404':
+          description: Account not found
+    put:
+      tags:
+      - Account
+      summary: Update account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '200':
+          description: Account updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '404':
+          description: Account not found
+    delete:
+      tags:
+      - Account
+      summary: Delete account
+      responses:
+        '204':
+          description: Account deleted
+        '404':
+          description: Account not found
+  /customers:
+    post:
+      tags:
+      - Customer
+      summary: Create customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '201':
+          description: Customer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+    get:
+      tags:
+      - Customer
+      summary: List customers
+      responses:
+        '200':
+          description: Customer list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+  /customers/{customerId}:
+    parameters:
+    - in: path
+      name: customerId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Customer
+      summary: Get customer detail
+      responses:
+        '200':
+          description: Customer detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Customer not found
+    put:
+      tags:
+      - Customer
+      summary: Update customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+      responses:
+        '200':
+          description: Customer updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '404':
+          description: Customer not found
+    delete:
+      tags:
+      - Customer
+      summary: Delete customer
+      responses:
+        '204':
+          description: Customer deleted
+        '404':
+          description: Customer not found
+  /drivers:
+    post:
+      tags:
+      - Driver
+      summary: Create driver
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '201':
+          description: Driver created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+    get:
+      tags:
+      - Driver
+      summary: List drivers
+      responses:
+        '200':
+          description: Driver list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Driver'
+  /drivers/{driverId}:
+    parameters:
+    - in: path
+      name: driverId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Driver
+      summary: Get driver detail
+      responses:
+        '200':
+          description: Driver detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+        '404':
+          description: Driver not found
+    put:
+      tags:
+      - Driver
+      summary: Update driver
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Driver'
+      responses:
+        '200':
+          description: Driver updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Driver'
+        '404':
+          description: Driver not found
+    delete:
+      tags:
+      - Driver
+      summary: Delete driver
+      responses:
+        '204':
+          description: Driver deleted
+        '404':
+          description: Driver not found
+  /vehicles:
+    post:
+      tags:
+      - Vehicle
+      summary: Create vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '201':
+          description: Vehicle created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+    get:
+      tags:
+      - Vehicle
+      summary: List vehicles
+      responses:
+        '200':
+          description: Vehicle list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+  /vehicles/{vehicleId}:
+    parameters:
+    - in: path
+      name: vehicleId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Vehicle
+      summary: Get vehicle detail
+      responses:
+        '200':
+          description: Vehicle detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+        '404':
+          description: Vehicle not found
+    put:
+      tags:
+      - Vehicle
+      summary: Update vehicle
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vehicle'
+      responses:
+        '200':
+          description: Vehicle updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Vehicle'
+        '404':
+          description: Vehicle not found
+    delete:
+      tags:
+      - Vehicle
+      summary: Delete vehicle
+      responses:
+        '204':
+          description: Vehicle deleted
+        '404':
+          description: Vehicle not found
+  /trips:
+    post:
+      tags:
+      - Trip
+      summary: Create trip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '201':
+          description: Trip created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+    get:
+      tags:
+      - Trip
+      summary: List trips
+      responses:
+        '200':
+          description: Trip list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+  /trips/{tripId}:
+    parameters:
+    - in: path
+      name: tripId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Trip
+      summary: Get trip detail
+      responses:
+        '200':
+          description: Trip detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        '404':
+          description: Trip not found
+    put:
+      tags:
+      - Trip
+      summary: Update trip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trip'
+      responses:
+        '200':
+          description: Trip updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trip'
+        '404':
+          description: Trip not found
+    delete:
+      tags:
+      - Trip
+      summary: Delete trip
+      responses:
+        '204':
+          description: Trip deleted
+        '404':
+          description: Trip not found
+  /payments:
+    post:
+      tags:
+      - Payment
+      summary: Create payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '201':
+          description: Payment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+    get:
+      tags:
+      - Payment
+      summary: List payments
+      responses:
+        '200':
+          description: Payment list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'
+  /payments/{paymentId}:
+    parameters:
+    - in: path
+      name: paymentId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Payment
+      summary: Get payment detail
+      responses:
+        '200':
+          description: Payment detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '404':
+          description: Payment not found
+    put:
+      tags:
+      - Payment
+      summary: Update payment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '200':
+          description: Payment updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '404':
+          description: Payment not found
+    delete:
+      tags:
+      - Payment
+      summary: Delete payment
+      responses:
+        '204':
+          description: Payment deleted
+        '404':
+          description: Payment not found
+  /ratings:
+    post:
+      tags:
+      - Rating
+      summary: Create rating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '201':
+          description: Rating created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+    get:
+      tags:
+      - Rating
+      summary: List ratings
+      responses:
+        '200':
+          description: Rating list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rating'
+  /ratings/{ratingId}:
+    parameters:
+    - in: path
+      name: ratingId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Rating
+      summary: Get rating detail
+      responses:
+        '200':
+          description: Rating detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '404':
+          description: Rating not found
+    put:
+      tags:
+      - Rating
+      summary: Update rating
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+      responses:
+        '200':
+          description: Rating updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        '404':
+          description: Rating not found
+    delete:
+      tags:
+      - Rating
+      summary: Delete rating
+      responses:
+        '204':
+          description: Rating deleted
+        '404':
+          description: Rating not found
+  /notifications:
+    post:
+      tags:
+      - Notification
+      summary: Create notification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '201':
+          description: Notification created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+    get:
+      tags:
+      - Notification
+      summary: List notifications
+      responses:
+        '200':
+          description: Notification list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+  /notifications/{notificationId}:
+    parameters:
+    - in: path
+      name: notificationId
+      required: true
+      schema:
+        type: integer
+        format: int64
+    get:
+      tags:
+      - Notification
+      summary: Get notification detail
+      responses:
+        '200':
+          description: Notification detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: Notification not found
+    put:
+      tags:
+      - Notification
+      summary: Update notification
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        '200':
+          description: Notification updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Notification'
+        '404':
+          description: Notification not found
+    delete:
+      tags:
+      - Notification
+      summary: Delete notification
+      responses:
+        '204':
+          description: Notification deleted
+        '404':
+          description: Notification not found
+  /auth/login:
+    post:
+      tags:
+      - Account
+      summary: Authenticate user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+                  format: password
+      responses:
+        '200':
+          description: Authentication successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '401':
+          description: Invalid credentials
+  /customers/{customerId}/trips:
+    get:
+      tags:
+      - Customer
+      summary: Get customer trip history
+      parameters:
+      - in: path
+        name: customerId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Trip history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Trip'
+  /drivers/{driverId}/availability:
+    patch:
+      tags:
+      - Driver
+      summary: Update driver availability
+      parameters:
+      - in: path
+        name: driverId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - available
+              properties:
+                available:
+                  type: boolean
+      responses:
+        '200':
+          description: Availability updated
+  /drivers/{driverId}/location:
+    patch:
+      tags:
+      - Driver
+      summary: Update driver location
+      parameters:
+      - in: path
+        name: driverId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - latitude
+              - longitude
+              properties:
+                latitude:
+                  type: number
+                  format: double
+                longitude:
+                  type: number
+                  format: double
+      responses:
+        '200':
+          description: Location updated
+  /drivers/{driverId}/vehicles:
+    get:
+      tags:
+      - Vehicle
+      summary: Get vehicles of a driver
+      parameters:
+      - in: path
+        name: driverId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Driver vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+  /trips/{tripId}/match-driver:
+    post:
+      tags:
+      - Trip
+      summary: Find a suitable driver
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Suitable driver found or matching started
+        '404':
+          description: No suitable driver found
+  /trips/{tripId}/accept:
+    post:
+      tags:
+      - Trip
+      summary: Driver accepts trip
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Trip accepted
+  /trips/{tripId}/reject:
+    post:
+      tags:
+      - Trip
+      summary: Driver rejects trip
+      description: The system may continue matching another suitable driver without
+        requiring the customer to recreate the request.
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Trip rejected; matching may continue
+  /trips/{tripId}/status:
+    patch:
+      tags:
+      - Trip
+      summary: Update trip status
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - tripStatus
+              properties:
+                tripStatus:
+                  type: string
+                  enum:
+                  - arrived_at_pickup
+                  - passenger_picked_up
+                  - in_progress
+                  - completed
+      responses:
+        '200':
+          description: Trip status updated
+  /trips/{tripId}/tracking:
+    get:
+      tags:
+      - Trip
+      summary: Track trip status
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Current trip tracking information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trip:
+                    $ref: '#/components/schemas/Trip'
+                  driver:
+                    $ref: '#/components/schemas/Driver'
+                  estimatedArrivalTime:
+                    type: string
+                    example: 10 minutes
+  /trips/{tripId}/payments:
+    post:
+      tags:
+      - Payment
+      summary: Process payment for a completed trip
+      description: Supports cash or electronic payment. Sensitive card/account data
+        is not stored directly.
+      parameters:
+      - in: path
+        name: tripId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - paymentMethod
+              properties:
+                paymentMethod:
+                  type: string
+                  enum:
+                  - cash
+                  - electronic
+      responses:
+        '200':
+          description: Payment result recorded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+        '502':
+          description: External payment failed
+  /payments/{paymentId}/retry:
+    post:
+      tags:
+      - Payment
+      summary: Retry failed electronic payment
+      description: Retry behavior follows business policy.
+      parameters:
+      - in: path
+        name: paymentId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Retry processed
+  /drivers/{driverId}/ratings:
+    get:
+      tags:
+      - Rating
+      summary: List ratings received by a driver
+      parameters:
+      - in: path
+        name: driverId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Driver ratings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rating'
+  /accounts/{accountId}/notifications:
+    get:
+      tags:
+      - Notification
+      summary: List notifications of an account
+      parameters:
+      - in: path
+        name: accountId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Account notifications
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Notification'
+  /notifications/{notificationId}/read:
+    patch:
+      tags:
+      - Notification
+      summary: Mark notification as read
+      parameters:
+      - in: path
+        name: notificationId
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Notification marked as read
+  /reports/trips:
+    get:
+      tags:
+      - Report
+      summary: Get trip count report
+      responses:
+        '200':
+          description: Report generated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - bearerAuth: []
+  /reports/revenue:
+    get:
+      tags:
+      - Report
+      summary: Get revenue report
+      responses:
+        '200':
+          description: Report generated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - bearerAuth: []
+  /reports/completion-rate:
+    get:
+      tags:
+      - Report
+      summary: Get trip completion rate report
+      responses:
+        '200':
+          description: Report generated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - bearerAuth: []
+  /reports/cancellation-rate:
+    get:
+      tags:
+      - Report
+      summary: Get trip cancellation rate report
+      responses:
+        '200':
+          description: Report generated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - bearerAuth: []
+  /reports/driver-performance:
+    get:
+      tags:
+      - Report
+      summary: Get driver performance report
+      responses:
+        '200':
+          description: Report generated
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        accountId:
+          type: integer
+          format: int64
+          readOnly: true
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+        accountType:
+          type: string
+          enum:
+          - customer
+          - driver
+          - operations
+        accountStatus:
+          type: string
+          example: active
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - username
+      - password
+      - accountType
+    Customer:
+      type: object
+      properties:
+        customerId:
+          type: integer
+          format: int64
+          readOnly: true
+        accountId:
+          type: integer
+          format: int64
+        fullName:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+          format: email
+      required:
+      - accountId
+      - fullName
+      - phone
+    Driver:
+      type: object
+      properties:
+        driverId:
+          type: integer
+          format: int64
+          readOnly: true
+        accountId:
+          type: integer
+          format: int64
+        fullName:
+          type: string
+        phone:
+          type: string
+        licenseNumber:
+          type: string
+        activityStatus:
+          type: string
+          example: available
+        currentLatitude:
+          type: number
+          format: double
+        currentLongitude:
+          type: number
+          format: double
+      required:
+      - accountId
+      - fullName
+      - phone
+      - licenseNumber
+    Vehicle:
+      type: object
+      properties:
+        vehicleId:
+          type: integer
+          format: int64
+          readOnly: true
+        driverId:
+          type: integer
+          format: int64
+        licensePlate:
+          type: string
+        vehicleType:
+          type: string
+        brand:
+          type: string
+        model:
+          type: string
+        vehicleStatus:
+          type: string
+          example: active
+      required:
+      - driverId
+      - licensePlate
+      - vehicleType
+    Trip:
+      type: object
+      properties:
+        tripId:
+          type: integer
+          format: int64
+          readOnly: true
+        customerId:
+          type: integer
+          format: int64
+        driverId:
+          type: integer
+          format: int64
+          nullable: true
+        vehicleId:
+          type: integer
+          format: int64
+          nullable: true
+        pickupLocation:
+          type: string
+        destination:
+          type: string
+        serviceType:
+          type: string
+        tripStatus:
+          type: string
+          example: matching
+        requestedAt:
+          type: string
+          format: date-time
+          readOnly: true
+        startedAt:
+          type: string
+          format: date-time
+          nullable: true
+        completedAt:
+          type: string
+          format: date-time
+          nullable: true
+        totalFare:
+          type: number
+          format: double
+          nullable: true
+      required:
+      - customerId
+      - pickupLocation
+      - destination
+      - serviceType
+    Payment:
+      type: object
+      properties:
+        paymentId:
+          type: integer
+          format: int64
+          readOnly: true
+        tripId:
+          type: integer
+          format: int64
+        paymentMethod:
+          type: string
+          enum:
+          - cash
+          - electronic
+        amount:
+          type: number
+          format: double
+        paymentStatus:
+          type: string
+          example: pending
+        externalReference:
+          type: string
+          nullable: true
+        processedAt:
+          type: string
+          format: date-time
+          nullable: true
+      required:
+      - tripId
+      - paymentMethod
+      - amount
+    Rating:
+      type: object
+      properties:
+        ratingId:
+          type: integer
+          format: int64
+          readOnly: true
+        tripId:
+          type: integer
+          format: int64
+        customerId:
+          type: integer
+          format: int64
+        driverId:
+          type: integer
+          format: int64
+        score:
+          type: integer
+          minimum: 1
+          maximum: 5
+        feedback:
+          type: string
+        ratedAt:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - tripId
+      - customerId
+      - driverId
+      - score
+    Notification:
+      type: object
+      properties:
+        notificationId:
+          type: integer
+          format: int64
+          readOnly: true
+        accountId:
+          type: integer
+          format: int64
+        tripId:
+          type: integer
+          format: int64
+          nullable: true
+        eventType:
+          type: string
+        deliveryChannel:
+          type: string
+          example: in_app
+        content:
+          type: string
+        deliveryStatus:
+          type: string
+          example: sent
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - accountId
+      - eventType
+      - content
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

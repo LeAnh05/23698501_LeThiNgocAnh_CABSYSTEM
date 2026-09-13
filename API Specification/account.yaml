@@ -1,0 +1,46 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Account API
+  version: 1.0.0
+paths:
+  /accounts:
+    post:
+      summary: Create account
+      responses:
+        '201':
+          description: Account created
+    get:
+      summary: List accounts
+      responses:
+        '200':
+          description: Account list
+  /accounts/{accountId}:
+    parameters:
+      - in: path
+        name: accountId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get account detail
+      responses:
+        '200':
+          description: Account detail
+    put:
+      summary: Update account
+      responses:
+        '200':
+          description: Account updated
+    delete:
+      summary: Delete account
+      responses:
+        '204':
+          description: Account deleted
+  /auth/login:
+    post:
+      summary: Authenticate user
+      responses:
+        '200':
+          description: Authentication successful
+        '401':
+          description: Invalid credentials

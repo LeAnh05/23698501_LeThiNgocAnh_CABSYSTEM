@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: CAB System - Vehicle API
+  version: 1.0.0
+paths:
+  /vehicles:
+    post:
+      summary: Create vehicle
+      responses:
+        '201':
+          description: Vehicle created
+    get:
+      summary: List vehicles
+      responses:
+        '200':
+          description: Vehicle list
+  /vehicles/{vehicleId}:
+    parameters:
+      - in: path
+        name: vehicleId
+        required: true
+        schema:
+          type: integer
+    get:
+      summary: Get vehicle detail
+      responses:
+        '200':
+          description: Vehicle detail
+    put:
+      summary: Update vehicle
+      responses:
+        '200':
+          description: Vehicle updated
+    delete:
+      summary: Delete vehicle
+      responses:
+        '204':
+          description: Vehicle deleted
+  /drivers/{driverId}/vehicles:
+    get:
+      summary: Get vehicles of a driver
+      parameters:
+        - in: path
+          name: driverId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Driver vehicle list
