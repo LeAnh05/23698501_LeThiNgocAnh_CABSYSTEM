@@ -386,27 +386,27 @@ Tổng cộng: **20 Functional Requirements**.
 
 Business Rules mô tả các quy tắc và ràng buộc nghiệp vụ mà CAB System phải tuân thủ. Các quy tắc chưa được xác định đầy đủ được đánh dấu **TBD** hoặc **Need Confirmation** để tiếp tục làm rõ với các bên liên quan.
 
-| ID | Business Rule | Trạng thái |
-|---|---|---|
-| BRU-01 | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản | Confirmed |
-| BRU-02 | Chỉ tài xế đang ở trạng thái sẵn sàng mới được xem xét để nhận chuyến | Confirmed |
-| BRU-03 | Việc tìm tài xế phải xem xét vị trí của tài xế | Confirmed |
-| BRU-04 | Khi tài xế từ chối hoặc không phản hồi, hệ thống phải tiếp tục tìm tài xế khác | Confirmed |
-| BRU-05 | Khách hàng không phải tạo lại yêu cầu khi hệ thống chuyển sang tìm tài xế khác | Confirmed |
-| BRU-06 | Nếu không tìm được tài xế phù hợp, khách hàng phải được thông báo | Confirmed |
-| BRU-07 | Việc tính cước được thực hiện sau khi chuyến đi hoàn thành | Confirmed |
-| BRU-08 | Số tiền phải trả được xác định dựa trên loại dịch vụ và thông tin chuyến đi | Confirmed |
-| BRU-09 | Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong CAB System | Confirmed |
-| BRU-10 | Khách hàng chỉ được đánh giá tài xế sau khi chuyến đi hoàn thành | Confirmed |
-| BRU-11 | Các thao tác quản trị nhạy cảm phải được kiểm soát quyền truy cập | Confirmed |
-| BRU-12 | Công thức tính cước cụ thể | TBD |
-| BRU-13 | Tiêu chí ưu tiên tài xế chi tiết | TBD |
-| BRU-14 | Thời gian tài xế phải phản hồi yêu cầu chuyến | TBD |
-| BRU-15 | Chính sách hủy chuyến | TBD |
-| BRU-16 | Quy tắc xử lý khi mất kết nối mạng | TBD |
-| BRU-17 | Thời gian lưu trữ dữ liệu | TBD |
-| BRU-18 | Mỗi lần đề xuất chuyến cho tài xế cần ghi nhận kết quả phản hồi để hệ thống xác định có tiếp tục tìm tài xế khác hay không | Derived – Need Confirmation |
-| BRU-19 | Một chuyến chỉ được ghi nhận tối đa một đánh giá của khách hàng cho tài xế trong phạm vi MVP | Assumption – Need Confirmation |
+| ID | Business Rule | Áp dụng cho | Trạng thái |
+|---|---|---|---|
+| BRU-01 | Khách hàng và tài xế phải được xác thực trước khi sử dụng các chức năng yêu cầu tài khoản | Account | Confirmed |
+| BRU-02 | Chỉ tài xế đang ở trạng thái sẵn sàng mới được xem xét để nhận chuyến | Driver Matching | Confirmed |
+| BRU-03 | Việc tìm tài xế phải xem xét vị trí của tài xế | Driver Matching | Confirmed |
+| BRU-04 | Khi tài xế từ chối hoặc không phản hồi, hệ thống phải tiếp tục tìm tài xế khác | Driver Matching | Confirmed |
+| BRU-05 | Khách hàng không phải tạo lại yêu cầu khi hệ thống chuyển sang tìm tài xế khác | Driver Matching | Confirmed |
+| BRU-06 | Nếu không tìm được tài xế phù hợp, khách hàng phải được thông báo | Driver Matching / Notification | Confirmed |
+| BRU-07 | Việc tính cước được thực hiện sau khi chuyến đi hoàn thành | Fare & Payment | Confirmed |
+| BRU-08 | Số tiền phải trả được xác định dựa trên loại dịch vụ và thông tin chuyến đi | Fare & Payment | Confirmed |
+| BRU-09 | Thông tin nhạy cảm của thẻ hoặc tài khoản thanh toán không được lưu trực tiếp trong CAB System | Fare & Payment | Confirmed |
+| BRU-10 | Khách hàng chỉ được đánh giá tài xế sau khi chuyến đi hoàn thành | Rating | Confirmed |
+| BRU-11 | Các thao tác quản trị nhạy cảm phải được kiểm soát quyền truy cập | Operations & Reporting | Confirmed |
+| BRU-12 | Công thức tính cước cụ thể | Fare & Payment | TBD |
+| BRU-13 | Tiêu chí ưu tiên tài xế chi tiết | Driver Matching | TBD |
+| BRU-14 | Thời gian tài xế phải phản hồi yêu cầu chuyến | Driver Matching | TBD |
+| BRU-15 | Chính sách hủy chuyến | Trip | TBD |
+| BRU-16 | Quy tắc xử lý khi mất kết nối mạng | Trip / Driver & Vehicle | TBD |
+| BRU-17 | Thời gian lưu trữ dữ liệu | Toàn hệ thống | TBD |
+| BRU-18 | Mỗi lần đề xuất chuyến cho tài xế cần ghi nhận kết quả phản hồi để hệ thống xác định có tiếp tục tìm tài xế khác hay không | Driver Matching | Derived – Need Confirmation |
+| BRU-19 | Một chuyến chỉ được ghi nhận tối đa một đánh giá của khách hàng cho tài xế trong phạm vi MVP | Rating | Assumption – Need Confirmation |
 
 > **TBD (To Be Determined):** Nội dung chưa được khách hàng xác định cụ thể và cần được làm rõ với các bên liên quan trước khi phát triển.
 
