@@ -352,20 +352,6 @@ flowchart TD
 
 ---
 
-## Tổng hợp Business Process
-
-| Business Process | Business Requirement | Nội dung chính |
-|---|---|---|
-| BP-01 | BR-01 | Quản lý tài khoản |
-| BP-02 | BR-02 | Quản lý tài xế và phương tiện |
-| BP-03 | BR-03 | Tạo và theo dõi yêu cầu đặt xe |
-| BP-04 | BR-04 | Tìm và phân công tài xế |
-| BP-05 | BR-05 | Thực hiện chuyến đi |
-| BP-06 | BR-06 | Tính cước và thanh toán |
-| BP-07 | BR-07 | Gửi thông báo |
-| BP-08 | BR-08 | Đánh giá tài xế |
-| BP-09 | BR-09 | Quản lý vận hành và báo cáo |
-
 # 7. Functional Requirements
 
 Các Functional Requirements mô tả những chức năng cụ thể mà CAB System phải cung cấp trong phạm vi MVP.
